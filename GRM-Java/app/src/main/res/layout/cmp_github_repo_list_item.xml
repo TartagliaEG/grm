@@ -1,52 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ripple"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingLeft="32dp"
-    android:paddingTop="16dp"
-    android:paddingRight="32dp"
-    android:paddingBottom="16dp">
+    app:mrl_rippleColor="@color/colorAccent"
+    app:mrl_rippleAlpha="0.1"
+    app:mrl_rippleDuration="500"
+    app:mrl_rippleFadeDuration="1000">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/txt_repo_number"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:paddingTop="8dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="8dp"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="1" />
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:paddingTop="16dp"
+        android:paddingRight="32dp"
+        android:paddingBottom="16dp">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/txt_repo_owner_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:textColor="#fff"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/txt_repo_number"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Repository owner name" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_repo_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:text="1"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/txt_repo_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:textColor="#fff"
-        app:layout_constraintStart_toEndOf="@+id/txt_repo_number"
-        app:layout_constraintTop_toBottomOf="@+id/txt_repo_owner_name"
-        tools:text="Repository name" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_repo_owner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/txt_repo_number"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Repository owner name" />
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_repo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#fff"
+            app:layout_constraintStart_toEndOf="@+id/txt_repo_number"
+            app:layout_constraintTop_toBottomOf="@+id/txt_repo_owner_name"
+            tools:text="Repository name" />
+
+    </android.support.constraint.ConstraintLayout>
+</com.balysv.materialripple.MaterialRippleLayout>

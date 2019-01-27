@@ -34,7 +34,7 @@ public class GithubRepoListRepositoryTest {
 
   @Before
   public void before() {
-    mRepoList.add(new GithubRepo(1, "GRM_Java", "TartagliaEG"));
+    mRepoList.add(new GithubRepo(1, "GRM_Java", "TartagliaEG", "https://github.com/TartagliaEG"));
 
     RxJavaPlugins.setIoSchedulerHandler(new Function<Scheduler, Scheduler>() {
       @Override

@@ -79,6 +79,7 @@ public class GithubRepoListPresenter implements GithubRepoListContract.IPresente
 
       @Override
       public void onError(Throwable e) {
+        e.printStackTrace();
         showFailureView();
       }
     });

@@ -11,28 +11,36 @@ import com.google.gson.annotations.SerializedName;
 public class GithubRepo {
   @PrimaryKey
   private final long id;
+
   @ColumnInfo(name = "name")
   private final String name;
+
   @ColumnInfo(name = "owner_name")
   private final String ownerName;
+
+  @ColumnInfo(name = "url")
+  @SerializedName("html_url")
+  private final String url;
 
   @Ignore
   @SerializedName("owner")
   private final Owner owner;
 
 
-  public GithubRepo(long id, String name, Owner owner) {
+  public GithubRepo(long id, String name, String url, Owner owner) {
     this.id = id;
     this.name = name;
+    this.url = url;
     this.owner = owner;
     this.ownerName = owner.name;
   }
 
-  public GithubRepo(long id, String name, String ownerName) {
+  public GithubRepo(long id, String name, String ownerName, String url) {
     this.id = id;
     this.name = name;
     this.ownerName = ownerName;
     this.owner = new Owner(ownerName);
+    this.url = url;
   }
 
   public long getId() {
@@ -48,6 +56,11 @@ public class GithubRepo {
   public String getName() {
     return name;
   }
+
+  public String getUrl() {
+    return url;
+  }
+
 
   public static class Owner {
     @SerializedName("login")

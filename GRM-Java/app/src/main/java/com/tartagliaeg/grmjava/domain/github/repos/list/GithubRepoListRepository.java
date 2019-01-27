@@ -200,6 +200,11 @@ public class GithubRepoListRepository implements GithubRepoListContract.IReposit
               repositories.add(new IGithubRepo() {
                 public String getName() { return gr.getName(); }
 
+                @Override
+                public String getUrl() {
+                  return gr.getUrl();
+                }
+
                 public String getOwnerName() { return gr.getOwnerName(); }
 
                 public long getId() { return gr.getId(); }

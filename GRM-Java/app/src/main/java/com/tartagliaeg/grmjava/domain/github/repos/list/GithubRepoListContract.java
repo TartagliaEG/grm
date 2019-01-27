@@ -36,6 +36,7 @@ public interface GithubRepoListContract {
   interface IGithubRepo {
     String getName();
     String getOwnerName();
+    String getUrl();
     long getId();
   }
 

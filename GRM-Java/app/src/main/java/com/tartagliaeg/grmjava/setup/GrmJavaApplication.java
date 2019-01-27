@@ -3,8 +3,6 @@ package com.tartagliaeg.grmjava.setup;
 import android.app.Application;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GrmJavaApplication extends Application {
   private Retrofit mRetrofitClient;
@@ -15,12 +13,7 @@ public class GrmJavaApplication extends Application {
     super.onCreate();
 
     mRoomDatabase = GrmRoomDatabase.create(this);
-
-    mRetrofitClient = new Retrofit.Builder()
-      .baseUrl("https://api.github.com")
-      .addConverterFactory(GsonConverterFactory.create())
-      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-      .build();
+    mRetrofitClient = GrmApiConfiguration.create(this);
 
   }
 

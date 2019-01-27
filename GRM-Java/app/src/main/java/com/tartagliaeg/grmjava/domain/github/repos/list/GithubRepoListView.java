@@ -2,6 +2,8 @@ package com.tartagliaeg.grmjava.domain.github.repos.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
@@ -97,7 +99,18 @@ public class GithubRepoListView extends LinearLayout implements GithubRepoListCo
   @Override
   public void showRepositoriesView(List<IGithubRepo> repos) {
     mMainFlipper.setDisplayedChild(REPOSITORIES_VIEW);
-    mRecyclerView.setAdapter(new RecyclerViewAdapter(getContext(), repos));
+    mRecyclerView.setAdapter(new RecyclerViewAdapter(
+      getContext(),
+      repos,
+      new OnSelectGithubRepositoryListener() {
+        @Override
+        public void onSelect(IGithubRepo repo) {
+          Intent intent = new Intent(Intent.ACTION_VIEW);
+          intent.setData(Uri.parse(repo.getUrl()));
+          getContext().startActivity(intent);
+        }
+      }
+    ));
   }
 
   @Override
@@ -115,16 +128,24 @@ public class GithubRepoListView extends LinearLayout implements GithubRepoListCo
     private AppCompatTextView mTxtRepoOwnerName;
     private AppCompatTextView mTxtRepoName;
     private AppCompatTextView mTxtRepoNumber;
+    private View mContainerView;
 
     RecyclerViewHolder(@NonNull View view) {
       super(view);
+      mContainerView = view;
       mTxtRepoOwnerName = view.findViewById(R.id.txt_repo_owner_name);
       mTxtRepoName = view.findViewById(R.id.txt_repo_name);
       mTxtRepoNumber = view.findViewById(R.id.txt_repo_number);
     }
 
     @SuppressLint("DefaultLocale")
-    void bind(GithubRepoListContract.IGithubRepo repo, int index) {
+    void bind(final GithubRepoListContract.IGithubRepo repo, int index, final OnSelectGithubRepositoryListener listener) {
+      mContainerView.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          listener.onSelect(repo);
+        }
+      });
       mTxtRepoOwnerName.setText(repo.getOwnerName());
       mTxtRepoName.setText(repo.getName());
       mTxtRepoNumber.setText(String.format("%02d", index));
@@ -134,10 +155,16 @@ public class GithubRepoListView extends LinearLayout implements GithubRepoListCo
   private static class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     private final Context mContext;
     private final List<GithubRepoListContract.IGithubRepo> mRepos;
+    private final OnSelectGithubRepositoryListener mListener;
 
-    RecyclerViewAdapter(Context context, List<GithubRepoListContract.IGithubRepo> repos) {
+    RecyclerViewAdapter(
+      Context context,
+      List<GithubRepoListContract.IGithubRepo> repos,
+      OnSelectGithubRepositoryListener listener
+    ) {
       mContext = context;
       mRepos = repos;
+      mListener = listener;
     }
 
     @NonNull
@@ -149,12 +176,18 @@ public class GithubRepoListView extends LinearLayout implements GithubRepoListCo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder vh, int index) {
-      vh.bind(mRepos.get(index), index);
+      vh.bind(mRepos.get(index), index, mListener);
     }
 
     @Override
     public int getItemCount() {
       return mRepos.size();
     }
+
   }
+
+  public interface OnSelectGithubRepositoryListener {
+    void onSelect(IGithubRepo repo);
+  }
+
 }

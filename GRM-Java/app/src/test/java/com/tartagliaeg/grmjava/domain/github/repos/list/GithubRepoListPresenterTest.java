@@ -30,7 +30,12 @@ public class GithubRepoListPresenterTest {
   @Before
   public void before() {
     mRepoList.add(new GithubRepoListContract.IGithubRepo() {
-      public String getName() { return "GRM_Java"; }
+      public String getName() { return "grm"; }
+
+      @Override
+      public String getUrl() {
+        return "https://github.com/TartagliaEG/grm";
+      }
 
       public String getOwnerName() {return "TartagliaEG";}
 
