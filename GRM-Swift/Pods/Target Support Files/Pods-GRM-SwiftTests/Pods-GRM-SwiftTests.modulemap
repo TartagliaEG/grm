@@ -1,0 +1,6 @@
+framework module Pods_GRM_SwiftTests {
+  umbrella header "Pods-GRM-SwiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

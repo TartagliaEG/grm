@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GithubRepoListTableCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" rowHeight="91" id="eNq-AJ-RFf" customClass="GithubRepoListTableCell" customModule="GRM_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eNq-AJ-RFf" id="aWq-YQ-c7R">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-1M-PuQ">
+                        <rect key="frame" x="48" y="34" width="22.5" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nome do Usuário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-gZ-THB">
+                        <rect key="frame" x="102" y="47" width="112.5" height="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Repositório" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY9-uf-DRP">
+                        <rect key="frame" x="102.5" y="19" width="161" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Rd6-gZ-THB" firstAttribute="top" secondItem="UY9-uf-DRP" secondAttribute="bottom" constant="8" id="3IW-9Z-xWo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Rd6-gZ-THB" secondAttribute="bottom" constant="8" id="3ag-HC-UDo"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Rd6-gZ-THB" secondAttribute="trailing" constant="32" id="Adx-TB-ljv"/>
+                    <constraint firstItem="UY9-uf-DRP" firstAttribute="leading" secondItem="y2b-1M-PuQ" secondAttribute="trailing" constant="32" id="YTG-35-KrS"/>
+                    <constraint firstItem="UY9-uf-DRP" firstAttribute="top" secondItem="aWq-YQ-c7R" secondAttribute="topMargin" constant="8" id="aVX-sV-p0X"/>
+                    <constraint firstItem="Rd6-gZ-THB" firstAttribute="leading" secondItem="y2b-1M-PuQ" secondAttribute="trailing" constant="32" id="iVB-Lx-8Ya"/>
+                    <constraint firstItem="y2b-1M-PuQ" firstAttribute="centerY" secondItem="aWq-YQ-c7R" secondAttribute="centerY" id="mBO-mT-97u"/>
+                    <constraint firstItem="y2b-1M-PuQ" firstAttribute="leading" secondItem="aWq-YQ-c7R" secondAttribute="leadingMargin" constant="32" id="sBD-ym-Mfr"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UY9-uf-DRP" secondAttribute="trailing" constant="32" id="sha-Go-btK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentView" destination="aWq-YQ-c7R" id="MRY-QT-ydW"/>
+                <outlet property="txtRepositoryName" destination="UY9-uf-DRP" id="Gab-nc-Jdt"/>
+                <outlet property="txtRepositoryNumber" destination="y2b-1M-PuQ" id="MPW-DJ-JZ2"/>
+                <outlet property="txtRepositoryOwner" destination="Rd6-gZ-THB" id="4YN-8K-DYo"/>
+            </connections>
+            <point key="canvasLocation" x="25.5" y="-81.5"/>
+        </tableViewCell>
+    </objects>
+</document>
