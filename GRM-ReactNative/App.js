@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, Platform, SafeAreaView } from 'react-native';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import SmtGithubRepoList from './src/domain/github-repo-list/smt.github-repo-list';
 import { Provider } from 'react-redux';
@@ -17,13 +17,15 @@ const store = createStore(combineReducers(reducers), {});
 export default class App extends React.Component {
   render() {
     StatusBar.setBarStyle('light-content');
-    StatusBar.setBackgroundColor('#000');
+    
+    if(Platform.OS === 'android')
+      StatusBar.setBackgroundColor('#000');
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <SmtGithubRepoList style={{}} statePath={PATH_GITHUB_REPO_LIST} />
-        </View>
+        </SafeAreaView>
       </Provider>
     );
   }
