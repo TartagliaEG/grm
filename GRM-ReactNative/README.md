@@ -1,4 +1,4 @@
-# Github Repositories List
+# Github Repository List
 Sample project developed with the basic ReactNative/Redux stack.
 
 ## Running the Project
